@@ -15,7 +15,7 @@ html{
 
 *, *:before, *:after {  /* --------------------->Hack del Box model ( * sirve para aplicar en todo el documento) */
     box-sizing: inherit;
-}
+}/* asd */
     
 body{
     font-size: 16px; /* 1rem = 16px */  
