@@ -1,0 +1,292 @@
+:root{
+    --blanco: #ffff;
+    --oscuro: #212121;
+    --primario: #ffc107;   /* -------------------> Paleta de colores que usamos en la web */
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+}
+/* Globales -------------------------------->> Escribimos bloques de código para leerlo mas fácil*/
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;                   /* -------------------------------> tamaño de letra, scroll y tamaño de la fuente del código en general */
+    scroll-snap-type: y mandatory;
+}
+
+*, *:before, *:after {  /* --------------------->Hack del Box model ( * sirve para aplicar en todo el documento) */
+    box-sizing: inherit;
+}
+    
+body{
+    font-size: 16px; /* 1rem = 16px */  
+    font-family: 'Lora', serif; /* --------------------> fuente de todo el cuerpo de la página web */
+    background-image: linear-gradient(to top,var(--grisClaro) 0%, var(--blanco)100%); /* Para dar degradado al color de fondo */
+}
+
+
+.Contenedor{        /* ------------------------------> clase para aplicar todo lo que se encuentre en la etiqueta main, secciones, iconos, descripción, etc... */
+    max-width: 120rem;
+    margin: 0 auto;
+}
+/* Boton: -------------------------------------->>> Escribimos bloques de código para leerlo fácilmente*/
+.boton{
+    background-color: var(--secundario); /* Color de fondo */
+    color: var(--blanco); /* Color de letra */
+    padding: 1rem 3rem; /* Margen, el padding es el espacio que tenemos entre el contenido del elemento y el borde */
+    margin-top: 1rem; /* es el margen que tendremos hacia arriba */
+    font-size: 2rem; /* tamaño de la fuente */
+    text-decoration: none; /* Para eliminar el subrayado que todo boton trae por default */
+    text-transform: uppercase; /* Eliminar mayúsculas */
+    font-weight: bold; /* Aplicar grosor a la fuente */
+    border-radius: .5rem; /* Aplicar estilo bordedado */
+    width: 90%; /* Ancho del area del contenido */
+    text-align: center; /* sirve para centrar el texto */
+    border: none; /* eliminar los border */
+
+}
+
+@media (min-width: 768px) { /* -----------------------> Los mq o media query sirven para aplicar diseños a dimesiones diferentes como pc, celular, ipad, tablet, etc.... */
+    .boton{
+        width: auto;
+    }
+    
+}
+
+.boton:hover { /* hover es basicamente eso que queremos que cambie cuando pasamos el mouse sobre el elemento ( cuando pasamos el click por un enlace vemos como cambia de puntero a la manito. */
+    cursor: pointer;
+}
+
+.enviar .boton{  /* DE esta forma aplicamos propieades a dos elementos */
+    width: 100%;
+
+}
+
+.sombra{        
+    -webkit-box-shadow: 10px 10px 15px 0px rgba(145,145,145,0.54);
+    -moz-box-shadow: 10px 10px 15px 0px rgba(145,145,145,0.54);
+    box-shadow: 10px 10px 15px 0px rgba(145,145,145,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 2rem;
+
+}
+/* Tipografias */
+h1{
+    font-size: 3.8rem; 
+}
+    
+h2{
+    font-size: 2.8rem; 
+}
+
+h3{
+    font-size: 1.8rem; 
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+/* Titulos */
+.titulo span{
+    font-size: 2rem;
+}
+
+/* Utilidades */
+
+.w-100{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-100{
+        width: auto;
+    }
+    
+}
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+/* Navegación principal */
+.navegacion-bg{
+    background-color: var(--secundario);
+}
+
+.Navegacion-Principales{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+@media (min-width: 768px) {
+    .Navegacion-Principales{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.Navegacion-Principales a{
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+.Navegacion-Principales a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+/* Hero */
+.hero{
+    background-image: url(/img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 410px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgb(0 0 0/70%);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+.contenido-hero.ubicacion{
+    display: flex;
+    align-items:flex-end;
+}
+
+.servicio,
+.Navegacion-Principales,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+/* Servicios */
+@media (min-width: 768px) {
+    .servicios{
+        display: grid; /* nos agrega las propiedades de CSS Grid */
+        /* grid-template-columns: 300px 300px; */ /* definir los pixeles de las columnas */
+        /* grid-template-rows: 200px 800px;  */ /* definirmos los pixeles de las filas */
+    
+        /* grid: 200px 800px / 300px 300px;  Es lo mismo que el grid template, pero de forma simplificada  */
+    
+        /* grid-template-columns: 33.3% 33.3% 33.3%; 33.3% es la división de 100/3 */
+        /* grid-template-columns: 1fr 1fr 1fr; cada fr es un 33.3% */
+        grid-template-columns: repeat(3, 1fr); /* es la forma mas sencilla para definir columna */
+        column-gap: 5rem; /* para la separación de las columanas */
+        
+    }
+}
+/* servicios */
+.servicio{
+    display: flex; /* colocar todo de izq a derecha */
+    flex-direction: column; /* cambiamos la difreecion de flex */
+    align-items: center; /* centramos contenido */
+
+}
+
+.servicio h3{
+    color: var(--secundario); /* color al heading 2 */
+    font-weight: normal; 
+}
+.servicio p{
+    line-height: 2; /* interlineado */
+    text-align: center; /* centrar texto */
+}
+.servicio .iconos{
+    height: 15rem; /* altura */
+    width: 15rem; /* ancho */
+    background-color: var(--primario); /* Color de fondo */
+    border-radius: 50%; /* esquinas redondeadas */
+    display: flex; /* posicionar los iconos */
+    justify-content: space-evenly; 
+    align-items: center; /*  alineas verticalmente */
+}
+
+/* Contacto */
+
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%);/* Toma dos parametros (valores) y minn utiliza el valor mas pequeño comparado contra el tamaño total */
+    margin:0 auto; /* utilizarlo en elementos como formularios, que el padre no sea display flex y que tenga un display block por default */
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center; /* Centramos el texto */
+    font-size: 1.8rem; /* Tamaño del texto */
+    text-transform: uppercase; /* Texto a mayúsculas */
+    font-weight: 700; /* Aplicamos negrita */
+    margin-bottom: 2rem; /* Margen de abajo */
+    color: var(--primario) /* color del texto */
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Para divir columnas */
+    grid-template-rows: auto auto 20rem; /* dar el tamaño y número de filas */
+    column-gap: 1rem; /* Separación de columnas */
+    }
+
+    .campo:nth-child(3), /* COn el nth-child seleccionamos el elmento que queramos darle estilos */
+    .campo:nth-child(4){
+        grid-column: 1 / 3;
+    }
+}
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+/* .campo input[type = "text"],
+.campo input[type = "tel"]{
+    background-color: red;
+}  Esto es una forma de darle estilos a loss label*/
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/*  Footer */
+
+.footer{
+    text-align: center;
+}
+
+.campo textarea{
+    height: 17rem;
+}
